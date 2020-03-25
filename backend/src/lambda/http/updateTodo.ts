@@ -1,7 +1,7 @@
 import 'source-map-support/register'
 import { APIGatewayProxyEvent, APIGatewayProxyHandler, APIGatewayProxyResult } from 'aws-lambda'
 import { getUserId} from '../../helpers/authHelper'
-import { UpdateTodoRequest } from '../../requests/UpdateTodoRequest'
+import { UpdateTodoRequest } from '../../requests/updateTodoRequest'
 import { TodosAccess } from '../../dataLayer/todosAccess'
 import { ApiResponseHelper } from '../../helpers/apiResponseHelper'
 import { createLogger } from '../../utils/logger'
