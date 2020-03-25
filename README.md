@@ -2,6 +2,8 @@
 
 # To Run the Project:
 
+- clone https://github.com/ousat/serverless-project.git
+
 - signup on Auth0 and create a project. Refer (this link)[https://auth0.com/docs] for documentation.
 
 - update AUTH ID and AUTH DOMAIN on client/src/config.ts and backend/src/authconfig.ts
