@@ -7,9 +7,9 @@ import Axios from 'axios'
 import { Jwt } from '../../auth/Jwt'
 import { JwtPayload } from '../../auth/JwtPayload'
 
-const logger = createLogger('auth')
+import { auth_url } from '../../authconfig'
 
-const jwksUrl = 'https://dev-tk2m75mz.auth0.com/pem'
+const logger = createLogger('auth')
 
 export const handler = async (
   event: CustomAuthorizerEvent
@@ -60,7 +60,7 @@ export const handler = async (
   }
 
   try {
-    const response = await Axios.get(jwksUrl);
+    const response = await Axios.get(auth_url);
     console.log(response);
     var verifedToken = verify(token,response.data,{algorithms:['RS256']})
 
