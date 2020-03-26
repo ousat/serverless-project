@@ -40,7 +40,7 @@ provider:
 
   environment:
     TODO_TABLE: todo-${self:provider.stage}
-    IMAGE_BUCKET: udpr-todos-${self:provider.stage}
+    IMAGE_BUCKET: udc-serverless-sat-todos-${self:provider.stage}
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
     USER_ID_INDEX: userId
     AUTH_0_SECRET_ID: Auth0Secret-${self:provider.stage}
@@ -63,7 +63,7 @@ provider:
       Action:
       - s3:PutObject
       - s3:GetObject
-      Resource: arn:aws:s3::::${self:provider.environment.IMAGE_BUCKET}/*
+      Resource: arn:aws:s3:::${self:provider.environment.IMAGE_BUCKET}/*
     - Effect: Allow
       Action:
         - dynamodb:Query
@@ -116,7 +116,7 @@ functions:
             requestModels:
               'application/json': CreateTodo
 
-  UpadteTodo:
+  UpdateTodo:
     handler: src/lambda/http/updateTodo.handler
     events:
       - http:
@@ -197,6 +197,8 @@ resources:
                 - GET
                 - POST
                 - PUT
+                - DELETE
+                - HEAD
               AllowedOrigins:
                 - "*"
 
