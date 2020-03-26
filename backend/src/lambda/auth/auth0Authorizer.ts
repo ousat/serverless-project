@@ -60,6 +60,7 @@ export const handler = async (
   }
 
   try {
+    
     const response = await Axios.get(auth_url);
     console.log(response);
     var verifedToken = verify(token,response.data,{algorithms:['RS256']})
